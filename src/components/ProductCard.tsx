@@ -44,7 +44,7 @@ const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
         )}
         <div className="flex items-center justify-between">
           <span className="text-2xl font-bold gradient-primary bg-clip-text text-transparent">
-            ${product.price}
+            {Math.round(product.price)} ريال
           </span>
           {!product.in_stock && (
             <Badge variant="destructive">غير متوفر</Badge>

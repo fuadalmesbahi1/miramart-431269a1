@@ -74,14 +74,14 @@ const Index = () => {
   const handleCheckout = () => {
     if (cartItems.length === 0) return;
 
-    const whatsappNumber = localStorage.getItem("whatsapp_number") || "967773226263";
+    const whatsappNumber = localStorage.getItem("whatsapp_number") || "777168938";
     const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
     
     let message = "مرحباً، أود طلب المنتجات التالية:\n\n";
     cartItems.forEach((item) => {
-      message += `• ${item.name}\n  الكمية: ${item.quantity}\n  السعر: $${(item.price * item.quantity).toFixed(2)}\n\n`;
+      message += `• ${item.name}\n  الكمية: ${item.quantity}\n  السعر: ${Math.round(item.price * item.quantity)} ريال\n\n`;
     });
-    message += `الإجمالي: $${total.toFixed(2)}`;
+    message += `الإجمالي: ${Math.round(total)} ريال`;
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;

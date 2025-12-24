@@ -69,7 +69,7 @@ const Admin = () => {
   });
 
   const [whatsappNumber, setWhatsappNumber] = useState(() => {
-    return localStorage.getItem("whatsapp_number") || "967773226263";
+    return localStorage.getItem("whatsapp_number") || "777168938";
   });
   const [adminSearchQuery, setAdminSearchQuery] = useState("");
 
@@ -902,7 +902,7 @@ const Admin = () => {
                     </p>
                   )}
                   <p className="text-xl font-bold text-primary">
-                    {product.price.toFixed(2)} ريال
+                    {Math.round(product.price)} ريال
                   </p>
                   <div className="flex gap-2 pt-2">
                     <Button

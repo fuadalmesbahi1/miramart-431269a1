@@ -55,7 +55,7 @@ const Cart = ({ isOpen, onClose, items, onRemoveItem, onCheckout }: CartProps) =
                         الكمية: {item.quantity}
                       </p>
                       <p className="font-semibold gradient-primary bg-clip-text text-transparent">
-                        ${(item.price * item.quantity).toFixed(2)}
+                        {Math.round(item.price * item.quantity)} ريال
                       </p>
                     </div>
                     <Button
@@ -75,7 +75,7 @@ const Cart = ({ isOpen, onClose, items, onRemoveItem, onCheckout }: CartProps) =
               <div className="flex justify-between text-lg font-semibold">
                 <span>المجموع:</span>
                 <span className="gradient-primary bg-clip-text text-transparent">
-                  ${total.toFixed(2)}
+                  {Math.round(total)} ريال
                 </span>
               </div>
               

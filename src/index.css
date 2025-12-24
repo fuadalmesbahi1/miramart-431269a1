@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 40 20% 98%;
+    --foreground: 25 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 25 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 25% 15%;
+
+    --primary: 35 90% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 140 50% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 40 20% 95%;
+    --muted-foreground: 25 15% 45%;
+
+    --accent: 35 85% 65%;
+    --accent-foreground: 25 25% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 15% 88%;
+    --input: 40 15% 88%;
+    --ring: 35 90% 55%;
+
+    --radius: 0.75rem;
+
+    /* Store specific colors */
+    --store-gradient-start: 35 90% 55%;
+    --store-gradient-end: 45 85% 50%;
+    --store-card-hover: 35 90% 97%;
+
+    --sidebar-background: 40 20% 98%;
+    --sidebar-foreground: 25 25% 15%;
+    --sidebar-primary: 35 90% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 40 20% 95%;
+    --sidebar-accent-foreground: 25 25% 15%;
+    --sidebar-border: 40 15% 88%;
+    --sidebar-ring: 35 90% 55%;
+  }
+
+  .dark {
+    --background: 25 20% 8%;
+    --foreground: 40 20% 95%;
+
+    --card: 25 15% 12%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 25 15% 12%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 35 90% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 140 50% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 25 15% 18%;
+    --muted-foreground: 40 15% 60%;
+
+    --accent: 35 85% 60%;
+    --accent-foreground: 40 20% 95%;
+
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 25 15% 20%;
+    --input: 25 15% 20%;
+    --ring: 35 90% 55%;
+
+    --store-gradient-start: 35 90% 55%;
+    --store-gradient-end: 45 85% 50%;
+    --store-card-hover: 25 15% 15%;
+
+    --sidebar-background: 25 20% 8%;
+    --sidebar-foreground: 40 20% 95%;
+    --sidebar-primary: 35 90% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 25 15% 18%;
+    --sidebar-accent-foreground: 40 20% 95%;
+    --sidebar-border: 25 15% 20%;
+    --sidebar-ring: 35 90% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  html {
+    direction: rtl;
+  }
+
+  html[dir="rtl"] {
+    direction: rtl;
+  }
+}
+
+@layer components {
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--store-gradient-start)), hsl(var(--store-gradient-end)));
+  }
+
+  .card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+  }
+}

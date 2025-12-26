@@ -16,8 +16,8 @@ const Header = ({ cartItemsCount, onCartClick }: HeaderProps) => {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate("/")}>
-          <img src={logo} alt="متجر ميرة" className="h-10 w-10 rounded-lg object-contain" />
-          <span className="text-xl font-bold">متجر ميرة</span>
+          <img src={logo} alt="متجر عايدة" className="h-10 w-10 rounded-lg object-contain" />
+          <span className="text-xl font-bold">متجر عايدة</span>
         </div>
         
         <div className="flex items-center gap-4">

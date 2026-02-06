@@ -36,14 +36,9 @@ interface Product {
   in_stock: boolean;
 }
 
-// كلمة المرور للحماية الأولية
-const ADMIN_ACCESS_PASSWORD = "mira2024";
-
 const Admin = () => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
-  const [accessGranted, setAccessGranted] = useState(false);
-  const [accessPassword, setAccessPassword] = useState("");
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -392,56 +387,6 @@ const Admin = () => {
       addMutation.mutate({ ...formData, image_url: uploadedImageUrl });
     }
   };
-
-  const handleAccessSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (accessPassword === ADMIN_ACCESS_PASSWORD) {
-      setAccessGranted(true);
-      toast.success("تم التحقق بنجاح");
-    } else {
-      toast.error("كلمة المرور غير صحيحة");
-    }
-  };
-
-  // شاشة إدخال كلمة المرور للحماية الأولية
-  if (!accessGranted) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-muted/50">
-        <Card className="w-full max-w-md">
-          <CardHeader>
-            <CardTitle className="text-center text-2xl">الدخول محمي</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleAccessSubmit} className="space-y-4">
-              <div>
-                <Label htmlFor="accessPassword">كلمة المرور</Label>
-                <Input
-                  id="accessPassword"
-                  type="password"
-                  value={accessPassword}
-                  onChange={(e) => setAccessPassword(e.target.value)}
-                  placeholder="أدخل كلمة المرور"
-                  className="text-right"
-                  required
-                />
-              </div>
-              <Button type="submit" className="w-full gradient-primary text-white">
-                دخول
-              </Button>
-              <Button
-                type="button"
-                variant="outline"
-                className="w-full"
-                onClick={() => navigate("/")}
-              >
-                العودة للمتجر
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  }
 
   if (loading) {
     return (
